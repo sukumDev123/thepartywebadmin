@@ -1,0 +1,11 @@
+.signInCard {
+  padding: 60px;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 6px;
+  height: 600px;
+  box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.2);
+}
+.signInCard form {
+  margin-top: 10%;
+}

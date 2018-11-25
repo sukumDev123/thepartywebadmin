@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="col-12 col-md-6" style="margin: auto">
+    <h3 class="text-center text-primary p-3">Add song band is you want.</h3>
+    <form (ngSubmit)="addSongBand()" enctype="multipart/form-data">
+      <div class="md-form">
+        <label for="name">Name Song Band : </label>
+        <input
+          type="text"
+          class="form-control"
+          name="name_band"
+          [(ngModel)]="songBang.name_band"
+          placeholder="Input your song band name is you want."
+        />
+      </div>
+      <div class="md-form">
+        <label for="detail">Detail Song Band : </label>
+        <input
+          type="text"
+          class="form-control"
+          name="detail_band"
+          [(ngModel)]="songBang.detail_band"
+          placeholder="Input your song band  detail is you want."
+        />
+      </div>
+      <div class="md-form">
+        <label for="price">Price Song Band : </label>
+        <input
+          type="text"
+          class="form-control"
+          name="price_band"
+          [(ngModel)]="songBang.price_band"
+          placeholder="Input your song band price is  you want."
+        />
+      </div>
+      <div class="md-form">
+        <label for="img">Upload Images : </label>
+        <input type="file" class="form-control" (change)="upload2($event)" />
+      </div>
+      <div class="md-form mt-3">
+        <button class="btn btn-primary btn-block">Upload The Song Band.</button>
+      </div>
+    </form>
+  </div>
+</div>
