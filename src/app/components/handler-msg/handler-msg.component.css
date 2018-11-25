@@ -1,0 +1,19 @@
+.msg_div {
+  position: fixed;
+  width: 30%;
+  bottom: 0%;
+  z-index: 100;
+  background-color: white;
+  right: 0;
+  padding: 20px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  border-radius: 3px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+}
+.err_msg h3 {
+  color: red;
+}
+.suc_msg h3 {
+  color: rgb(98, 209, 24);
+}

@@ -32,9 +32,22 @@
           placeholder="Input your song band price is  you want."
         />
       </div>
+      <div class="md-form text-center mt-3">
+        <img
+          src="{{selectedFile.src}}"
+          style="width:128px;height:128px"
+          accept="image/*"
+        />
+      </div>
       <div class="md-form">
         <label for="img">Upload Images : </label>
-        <input type="file" class="form-control" (change)="upload2($event)" />
+
+        <input
+          #imageInput
+          type="file"
+          class="form-control"
+          (change)="processFile(imageInput)"
+        />
       </div>
       <div class="md-form mt-3">
         <button class="btn btn-primary btn-block">Upload The Song Band.</button>

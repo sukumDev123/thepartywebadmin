@@ -9,6 +9,10 @@ import { LocaltionComponent } from "./components/localtion/localtion.component"
 import { FoodComponent } from "./components/food/food.component"
 import { AdminComponent } from "./components/admin/admin.component"
 import { FormsModule } from "@angular/forms"
+import { ToListComponent } from "./components/to-list/to-list.component"
+import { StoreModule } from "@ngrx/store"
+import { reducer } from "./store";
+import { HandlerMsgComponent } from './components/handler-msg/handler-msg.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,9 +20,17 @@ import { FormsModule } from "@angular/forms"
     SongBandComponent,
     LocaltionComponent,
     FoodComponent,
-    AdminComponent
+    AdminComponent,
+    ToListComponent,
+    HandlerMsgComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    StoreModule.forRoot(reducer)
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
