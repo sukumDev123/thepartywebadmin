@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core"
 import { SongInterface } from "../../interfaces/song.interface"
 import { SongService } from "../../services/song/song.service"
 import { StoreSService } from "../../services/store/store-s.service"
+import { ListObject } from "src/app/store/actions/list-object.action"
+import { reducer } from "../../store/index"
 
 class ImageSnippet {
   constructor(public src: string, public file: File) {}
@@ -12,7 +14,7 @@ class ImageSnippet {
   styleUrls: ["./song-band.component.css"]
 })
 export class SongBandComponent implements OnInit {
-  songBang: SongInterface = this.songDefault()
+  songBang: SongInterface
   selectedFile: ImageSnippet
   constructor(private songServer: SongService, private storeS: StoreSService) {}
 
@@ -36,7 +38,25 @@ export class SongBandComponent implements OnInit {
     reader.readAsDataURL(file)
   }
   ngOnInit() {
-    this.selectedFile.src = ""
+    this.songBang = this.songDefault()
+    this.selectedFile.src = "/123/123"
+  }
+  showListSong() {
+    this.songServer.getListSong(0, 1).subscribe(
+      songData => {
+        const newList: Array<ListObject> = songData.data.map(song => {
+          const data: ListObject = {
+            name: song.name_band,
+            detail: song.detail_band,
+            img: song.img_src,
+            price: song.price_band
+          }
+          return data
+        })
+        this.storeS.setListObject(newList)
+      },
+      er => console.log(er)
+    )
   }
   addSongBand() {
     this.songServer
