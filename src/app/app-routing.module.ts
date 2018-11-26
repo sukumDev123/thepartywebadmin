@@ -5,6 +5,7 @@ import { AdminComponent } from "./components/admin/admin.component"
 import { SongBandComponent } from "./components/song-band/song-band.component"
 import { FoodComponent } from "./components/food/food.component"
 import { LocaltionComponent } from "./components/localtion/localtion.component"
+import { ToListComponent } from "./components/to-list/to-list.component"
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
     children: [
       { path: "songBand", component: SongBandComponent },
       { path: "location", component: LocaltionComponent },
-      { path: "food", component: FoodComponent }
+      { path: "food", component: FoodComponent },
+      { path: "tolist", component: ToListComponent }
     ]
   }
 ]

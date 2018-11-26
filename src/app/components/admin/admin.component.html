@@ -5,12 +5,32 @@
 
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
-          <li class="nav-item"><a routerLink="/admin/food">Food</a></li>
-          <li class="nav-item"><a routerLink="/admin/location">Location</a></li>
           <li class="nav-item">
-            <a routerLink="/admin/songBand">The Song Band</a>
+            <i class="fas fa-utensils"></i> <a routerLink="/admin/food">Food</a>
+          </li>
+          <li class="nav-item">
+            <i class="fas fa-location-arrow"></i>
+            <a routerLink="/admin/location">Location</a>
+          </li>
+          <li class="nav-item">
+            <i class="fas fa-music"></i>
+            <a routerLink="/admin/songBand" routerLinkActive="getActive"
+              >The Song Band</a
+            >
+          </li>
+          <li class="nav-item">
+            <i class="fas fa-list-ul"></i>
+            <a routerLink="/admin/tolist" routerLinkActive="getActive"
+              >View list all</a
+            >
           </li>
         </ul>
+        <hr />
+        <div class="text-center">
+          <img src="/assets/picture.png" class="imagProfile" alt="adminface" />
+          <h5>admin: {{ adminIs.displayName }}</h5>
+          <small class="text-danger">Log out.</small>
+        </div>
       </div>
     </nav>
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 ">

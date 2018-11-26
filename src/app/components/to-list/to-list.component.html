@@ -1,25 +1,48 @@
-<div class="col-12 col-md-6" style="margin:auto">
-  <table>
-    <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Detail</th>
-      <th>image</th>
-      <th>price</th>
+<div class="p-3">
+  <div class="text-center">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" (click)="toListOfSong()" class="btn btn-secondary">
+        Show List Total Of Song Bands.
+      </button>
+      <button type="button" class="btn btn-secondary">
+        Show List Total of Locations.
+      </button>
+      <button type="button" class="btn btn-secondary">
+        Show List Total of Food place.
+      </button>
+    </div>
+  </div>
 
-      <th>Delete</th>
-      <th>Editer</th>
-    </tr>
+  <div *ngIf="listObjectTo.length" class="mt-5" style="margin:auto">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Detail</th>
+          <th scope="col">image</th>
+          <th scope="col">price</th>
 
-    <tr *ngFor="let list of listObjectTo; let i = index">
-      <td>{{ i }}</td>
-      <td>{{ list.name }}</td>
-      <td>{{ list.detail }}</td>
-      <td><img src="{{list.image}}" width="128px;128px;" alt="" /></td>
-      <td>{{ list.price }}</td>
-      <td><a>x</a></td>
-      <td><a>e</a></td>
-    </tr>
-  </table>
+          <th scope="col">Delete</th>
+          <th scope="col">Edit</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let list of listObjectTo; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ list.name }}</td>
+          <td>{{ list.detail }}</td>
+          <td><img src="{{list.img}}" width="128px;128px;" alt="" /></td>
+          <td>{{ list.price }}</td>
+          <td>
+            <a class="closeListObject"><i class="fas fa-window-close"></i></a>
+          </td>
+          <td>
+            <a class="editListObject"> <i class="fas fa-edit"></i> </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-{{ listObjectTo }}

@@ -1,7 +1,13 @@
 <div *ngIf="message.show">
   <div class="msg_div {{message.class}}">
-    <h3>{{ message.status }}</h3>
-    <p>{{ message.message }}</p>
-    <strong class="text-danger" (click)="message.show = false"> ปิด </strong>
+    <h3 style="font-weight:bold">Status is : {{ message.status }}</h3>
+    <p style="font-weight:bold">Message : {{ message.message }}</p>
+    <strong
+      style="cursor: pointer"
+      class="text-danger"
+      (click)="message.show = false"
+    >
+      ปิด
+    </strong>
   </div>
 </div>

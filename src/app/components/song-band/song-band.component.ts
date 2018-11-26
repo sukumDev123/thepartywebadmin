@@ -4,6 +4,7 @@ import { SongService } from "../../services/song/song.service"
 import { StoreSService } from "../../services/store/store-s.service"
 import { ListObject } from "src/app/store/actions/list-object.action"
 import { reducer } from "../../store/index"
+import { UploadImage } from "../../about_upload_imaage"
 
 class ImageSnippet {
   constructor(public src: string, public file: File) {}
@@ -16,6 +17,7 @@ class ImageSnippet {
 export class SongBandComponent implements OnInit {
   songBang: SongInterface
   selectedFile: ImageSnippet
+  showImage: string = "/assets/picturestart.png"
   constructor(private songServer: SongService, private storeS: StoreSService) {}
 
   songDefault() {
@@ -27,45 +29,22 @@ export class SongBandComponent implements OnInit {
     }
   }
   processFile(imageInput: any) {
-    const file: File = imageInput.files[0]
-    const reader = new FileReader()
-
-    reader.addEventListener("load", (event: any) => {
-      this.selectedFile = new ImageSnippet(event.target.result, file)
-      console.log(this.selectedFile)
+    new UploadImage().processFile(imageInput).then(suc => {
+      this.selectedFile = suc
+      this.showImage = suc.src
     })
-
-    reader.readAsDataURL(file)
   }
   ngOnInit() {
     this.songBang = this.songDefault()
-    this.selectedFile.src = "/123/123"
   }
-  showListSong() {
-    this.songServer.getListSong(0, 1).subscribe(
-      songData => {
-        const newList: Array<ListObject> = songData.data.map(song => {
-          const data: ListObject = {
-            name: song.name_band,
-            detail: song.detail_band,
-            img: song.img_src,
-            price: song.price_band
-          }
-          return data
-        })
-        this.storeS.setListObject(newList)
-      },
-      er => console.log(er)
-    )
-  }
+
   addSongBand() {
     this.songServer
       .saveSongBand(this.songBang, this.selectedFile.file)
       .subscribe(
         d => {
-          console.log(d)
           this.songBang = this.songDefault()
-          this.selectedFile.src = ""
+          this.showImage = ""
           this.storeS.setHandlerMsg({
             message: d.message,
             class: "suc_msg",
@@ -75,7 +54,7 @@ export class SongBandComponent implements OnInit {
         },
         e => {
           this.storeS.setHandlerMsg({
-            message: e.message,
+            message: e.error.message,
             class: "err_msg",
             show: true,
             status: e.status

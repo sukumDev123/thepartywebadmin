@@ -19,7 +19,14 @@ export class HandlerMsgComponent implements OnInit {
   ngOnInit() {
     this.msg_handler.getHandlerMsg().subscribe(
       data => {
-        this.message = data
+        this.message = {
+          message: data.message
+            ? data.message
+            : " Maybe server is turn off.\n You can try again.",
+          class: data.class,
+          show: data.show,
+          status: data.status
+        }
       },
       e => console.log("Error from HandlerMsgComponent : ", e)
     )
