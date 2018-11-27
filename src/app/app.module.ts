@@ -12,7 +12,8 @@ import { FormsModule } from "@angular/forms"
 import { ToListComponent } from "./components/to-list/to-list.component"
 import { StoreModule } from "@ngrx/store"
 import { reducer } from "./store";
-import { HandlerMsgComponent } from './components/handler-msg/handler-msg.component'
+import { HandlerMsgComponent } from './components/handler-msg/handler-msg.component';
+import { ThemeComponent } from './components/theme/theme.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { HandlerMsgComponent } from './components/handler-msg/handler-msg.compon
     FoodComponent,
     AdminComponent,
     ToListComponent,
-    HandlerMsgComponent
+    HandlerMsgComponent,
+    ThemeComponent
   ],
   imports: [
     BrowserModule,

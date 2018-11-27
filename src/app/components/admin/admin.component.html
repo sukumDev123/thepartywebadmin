@@ -1,10 +1,21 @@
 <div class="container-fluid">
   <div class="row">
-    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+    <nav class="col-md-2 d-none text-center d-md-block bg-light sidebar">
+      <img
+        class="mt-3"
+        src="/assets/party.png"
+        style="width:128px;height:150px;"
+        alt=""
+        srcset=""
+      />
       <h3 class="text-center">Party Editer</h3>
 
       <div class="sidebar-sticky">
-        <ul class="nav flex-column">
+        <ul class="nav text-left flex-column">
+          <li class="nav-item">
+            <i class="fab fa-elementor"></i>
+            <a routerLink="/admin/theme">Theme</a>
+          </li>
           <li class="nav-item">
             <i class="fas fa-utensils"></i> <a routerLink="/admin/food">Food</a>
           </li>
@@ -29,7 +40,7 @@
         <div class="text-center">
           <img src="/assets/picture.png" class="imagProfile" alt="adminface" />
           <h5>admin: {{ adminIs.displayName }}</h5>
-          <small class="text-danger">Log out.</small>
+          <small (click)="logout()" class="text-danger">Log out.</small>
         </div>
       </div>
     </nav>

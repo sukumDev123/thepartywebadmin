@@ -14,8 +14,8 @@
 
   width: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  background: #007bff;
-  color: white;
+  /* background: #007bff; */
+  color: #007bff;
 }
 .sidebar li a {
   padding: 10px;

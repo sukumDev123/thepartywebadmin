@@ -12,4 +12,7 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
     // console.log(this.adminIs)
   }
+  logout() {
+    localStorage.removeItem("admin")
+  }
 }

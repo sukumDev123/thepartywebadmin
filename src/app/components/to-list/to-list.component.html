@@ -2,22 +2,31 @@
   <div class="text-center">
     <div class="btn-group" role="group" aria-label="Basic example">
       <button type="button" (click)="toListOfSong()" class="btn btn-secondary">
-        Show List Total Of Song Bands.
+        Show List Song Bands.
       </button>
-      <button type="button" class="btn btn-secondary">
-        Show List Total of Locations.
+      <button
+        type="button"
+        (click)="toListOfLocation()"
+        class="btn btn-secondary"
+      >
+        Show List Locations.
       </button>
-      <button type="button" class="btn btn-secondary">
-        Show List Total of Food place.
+      <button type="button" (click)="toListOfFood()" class="btn btn-secondary">
+        Show List Food place.
+      </button>
+      <button type="button" (click)="toListOfTheme()" class="btn btn-secondary">
+        Show List Theme place.
       </button>
     </div>
   </div>
 
   <div *ngIf="listObjectTo.length" class="mt-5" style="margin:auto">
-    <table class="table">
+    <h3 class="text-center mb-3">Num of list: {{ sizeOfList }}</h3>
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th scope="col">#</th>
+          <th scope="col">id</th>
           <th scope="col">Name</th>
           <th scope="col">Detail</th>
           <th scope="col">image</th>
@@ -31,9 +40,10 @@
       <tbody>
         <tr *ngFor="let list of listObjectTo; let i = index">
           <td>{{ i + 1 }}</td>
+          <td>{{ list.id }}</td>
           <td>{{ list.name }}</td>
           <td>{{ list.detail }}</td>
-          <td><img src="{{list.img}}" width="128px;128px;" alt="" /></td>
+          <td><img src="{{list.img}}" style="width:128px;height:80px;" /></td>
           <td>{{ list.price }}</td>
           <td>
             <a class="closeListObject"
@@ -49,5 +59,16 @@
         </tr>
       </tbody>
     </table>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li
+          *ngFor="let page of paginatioView"
+          (click)="pageChangeView(typeOfList, page, page)"
+          class="page-item"
+        >
+          <a class="page-link">{{ page }}</a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>

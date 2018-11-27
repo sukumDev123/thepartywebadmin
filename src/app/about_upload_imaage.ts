@@ -1,4 +1,4 @@
-class ImageSnippet {
+export class ImageSnippet {
   constructor(public src: string, public file: File) {}
 }
 export class UploadImage {
