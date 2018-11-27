@@ -1,0 +1,56 @@
+<div class="container p-3 body_home">
+  <div class="text-center mb-5">
+    <img src="/assets/party.png" style="width:128px;height: 150px;" />
+  </div>
+  <div>
+    <nav aria-label="...">
+      <ul class="pagination pagination-lg">
+        <li class="page-item ">
+          <a class="page-link" routerLink="home">Home Page</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" routerLink="signin">Sign In</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">Sign up</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <hr />
+  <div>
+    <h3 class="text-center text-primary">EFLOOR Party</h3>
+    <p style="width:50%;margin:auto;">
+      Handler your party is easy. If you want to party ex. Halloween , Christmas
+      or HBD etc.You can click this -->
+      <strong><a>Booking for your Party</a></strong>
+    </p>
+  </div>
+  <h5 class="text-primary mt-5">You can choose Song bands you like it.</h5>
+
+  <div class="row bkSong">
+    <div class="col-12 col-md-4 p-3" *ngFor="let song of songData">
+      <img class="imgSongHome" src="{{ song }}" srcset="" />
+    </div>
+    <h3
+      class="text-center addKanti"
+      style="color:rgba(0, 0, 0, 0.5)"
+      *ngIf="!songData.length"
+    >
+      Song Band is empty.
+    </h3>
+  </div>
+  <h5 class="text-primary mt-5">You can choose Locations you like it.</h5>
+
+  <div class="row bkSong">
+    <div class="col-12 col-md-4 p-3" *ngFor="let location of locationData">
+      <img class="imgSongHome" src="{{ location }}" />
+    </div>
+  </div>
+  <h3
+    class="text-center addKanti"
+    style="color:rgba(0, 0, 0, 0.5)"
+    *ngIf="!locationData.length"
+  >
+    Location is empty.
+  </h3>
+</div>

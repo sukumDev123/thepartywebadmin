@@ -7,8 +7,18 @@ import { FoodComponent } from "./components/food/food.component"
 import { LocaltionComponent } from "./components/localtion/localtion.component"
 import { ToListComponent } from "./components/to-list/to-list.component"
 import { ThemeComponent } from "./components/theme/theme.component"
+import { HomeComponent } from "./components/home/home.component"
+import { SelectedPartyComponent } from "./components/selected-party/selected-party.component"
 
 const routes: Routes = [
+  {
+    path: "home",
+    component: HomeComponent
+  },
+  {
+    path: "selectedParty",
+    component: SelectedPartyComponent
+  },
   {
     path: "signin",
     component: SigninComponent

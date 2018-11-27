@@ -13,7 +13,9 @@ import { ToListComponent } from "./components/to-list/to-list.component"
 import { StoreModule } from "@ngrx/store"
 import { reducer } from "./store";
 import { HandlerMsgComponent } from './components/handler-msg/handler-msg.component';
-import { ThemeComponent } from './components/theme/theme.component'
+import { ThemeComponent } from './components/theme/theme.component';
+import { HomeComponent } from './components/home/home.component';
+import { SelectedPartyComponent } from './components/selected-party/selected-party.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,9 @@ import { ThemeComponent } from './components/theme/theme.component'
     AdminComponent,
     ToListComponent,
     HandlerMsgComponent,
-    ThemeComponent
+    ThemeComponent,
+    HomeComponent,
+    SelectedPartyComponent
   ],
   imports: [
     BrowserModule,

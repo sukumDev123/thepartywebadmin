@@ -8,3 +8,17 @@
 body {
   background: #007bff;
 }
+h1,
+h3,
+h5,
+p,
+a,
+small,
+strong,
+button,
+li,
+th,
+td,
+.addKanit {
+  font-family: "Kanit", sans-serif;
+}
