@@ -36,7 +36,12 @@
           <td><img src="{{list.img}}" width="128px;128px;" alt="" /></td>
           <td>{{ list.price }}</td>
           <td>
-            <a class="closeListObject"><i class="fas fa-window-close"></i></a>
+            <a class="closeListObject"
+              ><i
+                (click)="deleteListOfSong(list, list.type)"
+                class="fas fa-window-close"
+              ></i
+            ></a>
           </td>
           <td>
             <a class="editListObject"> <i class="fas fa-edit"></i> </a>

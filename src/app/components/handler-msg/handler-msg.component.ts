@@ -19,6 +19,7 @@ export class HandlerMsgComponent implements OnInit {
   ngOnInit() {
     this.msg_handler.getHandlerMsg().subscribe(
       data => {
+        console.log(data)
         this.message = {
           message: data.message
             ? data.message

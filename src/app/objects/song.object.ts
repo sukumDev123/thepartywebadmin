@@ -3,10 +3,21 @@ export class ListObject {
   price = 0
   detail = ""
   img = ""
-  constructor(name: string, price: number, detail: string, img: string) {
+  type = ""
+  id = ""
+  constructor(
+    name: string,
+    price: number,
+    detail: string,
+    img: string,
+    type: string,
+    id: any
+  ) {
     this.name = name
     this.detail = detail
     this.price = price
     this.img = img
+    this.type = type
+    this.id = id
   }
 }

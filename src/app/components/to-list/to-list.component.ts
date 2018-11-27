@@ -4,6 +4,7 @@ import { SongService } from "../../services/song/song.service"
 import { ListObject } from "../../objects/song.object"
 import { host_to_api } from "../../host"
 import { StoreSService } from "../../services/store/store-s.service"
+import { MsgInterFace } from "../../store/actions/handler-msg.action"
 
 @Component({
   selector: "app-to-list",
@@ -22,15 +23,13 @@ export class ToListComponent implements OnInit {
       .getListObject()
       .subscribe(data => this.handlerObjectSuc(data), this.handlerObjectErr)
   }
+  deleteListOfSong(list, type) {
+    if (type === "song") this.songDelete(list)
+  }
+
   handlerObjectSuc(listObjects: Array<any>) {
     if (listObjects.length) {
-      this.listObjectTo = listObjects.map(d => {
-        const name = d.name_band ? d.name_band : "Name is empty."
-        const price = d.price_band
-        const detail = d.detail_band
-        const img_path = `${this.host}/public/${d.img_src}`
-        return new ListObject(name, price, detail, img_path)
-      })
+      this.listObjectTo = listObjects
     } else {
       this.listObjectTo = []
     }
@@ -44,15 +43,40 @@ export class ToListComponent implements OnInit {
       message: message,
       class: "err_msg",
       show: true,
-      status: e.status
+      status: e.error.status ? e.error.status : e.status
     })
   }
   toListOfSong() {
-    this.songObjects
-      .getListSong(0, 1)
-      .subscribe(
-        songs => this.listObject.setListObject(songs.data),
-        error => this.handlerErrMes(error)
-      )
+    this.songObjects.getListSong(0, 10).subscribe(
+      songs => {
+        const songData = songs.data.map(d => {
+          const name = d.name_band ? d.name_band : "Name is empty."
+          const price = d.price_band
+          const detail = d.detail_band
+          const img_path = `${this.host}/public/${d.img_src}`
+          const type = "song"
+          const id = d.id
+          return new ListObject(name, price, detail, img_path, type, id)
+        })
+        this.listObject.setListObject(songData)
+      },
+      error => this.handlerErrMes(error)
+    )
+  }
+  songDelete(list) {
+    const id_song = list.id
+    this.songObjects.deleteSong(id_song).subscribe(
+      d => {
+        const msg: MsgInterFace = {
+          message: d.message,
+          class: "suc_msg",
+          show: true,
+          status: d.status
+        }
+        this.listObjectTo.splice(this.listObjectTo.indexOf(list), 1)
+        this.listObject.setHandlerMsg(msg)
+      },
+      e => this.handlerErrMes(e)
+    )
   }
 }

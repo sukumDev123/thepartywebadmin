@@ -25,4 +25,7 @@ export class SongService {
       }/api/v1/song/admin/songlistadmin?limit_start=${start}&limit_end=${end}`
     )
   }
+  deleteSong(id_song) : Observable<any> {
+    return this.http.delete(`${this.host}/api/v1/song/admin/song/${id_song}`)
+  }
 }
