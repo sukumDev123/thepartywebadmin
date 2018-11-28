@@ -44,7 +44,7 @@
           <td>{{ list.name }}</td>
           <td>{{ list.detail }}</td>
           <td><img src="{{list.img}}" style="width:128px;height:80px;" /></td>
-          <td>{{ list.price }}</td>
+          <td>{{ list.price | currency: "฿" }}</td>
           <td>
             <a class="closeListObject"
               ><i

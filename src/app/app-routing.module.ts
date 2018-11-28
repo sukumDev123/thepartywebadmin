@@ -9,6 +9,8 @@ import { ToListComponent } from "./components/to-list/to-list.component"
 import { ThemeComponent } from "./components/theme/theme.component"
 import { HomeComponent } from "./components/home/home.component"
 import { SelectedPartyComponent } from "./components/selected-party/selected-party.component"
+import { UserGuard } from "./guards/user.guard"
+import { NotSignGuard } from "./guards/not-sign.guard"
 
 const routes: Routes = [
   {
@@ -21,11 +23,13 @@ const routes: Routes = [
   },
   {
     path: "signin",
-    component: SigninComponent
+    component: SigninComponent,
+    canActivate: [NotSignGuard]
   },
   {
     path: "admin",
     component: AdminComponent,
+    canActivate: [UserGuard],
     children: [
       { path: "songBand", component: SongBandComponent },
       { path: "location", component: LocaltionComponent },
@@ -35,8 +39,14 @@ const routes: Routes = [
     ]
   },
   {
+    path: "admin",
+    redirectTo: "/admin/tolist",
+    pathMatch: "full"
+  },
+  {
     path: "**",
-    redirectTo: "signin"
+    redirectTo: "signin",
+    pathMatch: "full"
   }
 ]
 

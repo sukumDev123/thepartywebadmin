@@ -15,7 +15,10 @@ import { reducer } from "./store";
 import { HandlerMsgComponent } from './components/handler-msg/handler-msg.component';
 import { ThemeComponent } from './components/theme/theme.component';
 import { HomeComponent } from './components/home/home.component';
-import { SelectedPartyComponent } from './components/selected-party/selected-party.component'
+import { SelectedPartyComponent } from './components/selected-party/selected-party.component';
+import { UserComponent } from './components/user/user.component';
+import { HistoryComponent } from './components/user/history/history.component';
+import { PartyHandlerComponent } from './components/user/party-handler/party-handler.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +31,10 @@ import { SelectedPartyComponent } from './components/selected-party/selected-par
     HandlerMsgComponent,
     ThemeComponent,
     HomeComponent,
-    SelectedPartyComponent
+    SelectedPartyComponent,
+    UserComponent,
+    HistoryComponent,
+    PartyHandlerComponent
   ],
   imports: [
     BrowserModule,

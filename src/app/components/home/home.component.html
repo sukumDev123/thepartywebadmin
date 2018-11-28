@@ -2,19 +2,29 @@
   <div class="text-center mb-5">
     <img src="/assets/party.png" style="width:128px;height: 150px;" />
   </div>
-  <div>
-    <nav aria-label="...">
-      <ul class="pagination pagination-lg">
-        <li class="page-item ">
-          <a class="page-link" routerLink="home">Home Page</a>
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a style="font-weight: bold" class="navbar-brand text-primary"
+        >EFLOOR Party</a
+      >
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" style="font-weight: bold" routerLink="/home/"
+            >Home
+          </a>
         </li>
-        <li class="page-item">
-          <a class="page-link" routerLink="signin">Sign In</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">Sign up</a></li>
       </ul>
-    </nav>
-  </div>
+      <div class="form-inline my-2 my-lg-0">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="page-item">
+            <a class="page-link" routerLink="/signin/">Sign In</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">Sign up</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <hr />
   <div>
@@ -45,12 +55,43 @@
     <div class="col-12 col-md-4 p-3" *ngFor="let location of locationData">
       <img class="imgSongHome" src="{{ location }}" />
     </div>
+    <h3
+      class="text-center addKanti"
+      style="color:rgba(0, 0, 0, 0.5)"
+      *ngIf="!locationData.length"
+    >
+      Location is empty.
+    </h3>
   </div>
-  <h3
-    class="text-center addKanti"
-    style="color:rgba(0, 0, 0, 0.5)"
-    *ngIf="!locationData.length"
-  >
-    Location is empty.
-  </h3>
+  <h5 class="text-primary mt-5">You can choose theme you like it.</h5>
+
+  <div class="row bkSong">
+    <div class="col-12 col-md-4 p-3" *ngFor="let theme of themeData">
+      <img class="imgSongHome" src="{{ theme }}" />
+    </div>
+    <h3
+      class="text-center addKanti"
+      style="color:rgba(0, 0, 0, 0.5)"
+      *ngIf="!themeData.length"
+    >
+      Theme is empty.
+    </h3>
+  </div>
+  <h5 class="text-primary mt-5">You can choose food you like it.</h5>
+
+  <div class="row bkSong">
+    <div class="col-12 col-md-4 p-3" *ngFor="let food of foodsData">
+      <img class="imgSongHome" src="{{ food }}" />
+    </div>
+    <h3
+      class="text-center addKanti"
+      style="color:rgba(0, 0, 0, 0.5)"
+      *ngIf="!foodsData.length"
+    >
+      Food is empty.
+    </h3>
+  </div>
+  <button class=" mt-5 btn btn-primary btn-lg btn-block">
+    Booking for your Party
+  </button>
 </div>

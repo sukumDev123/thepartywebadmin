@@ -40,12 +40,15 @@ export class ToListComponent implements OnInit {
     if (type === "food") this.foodDelete(list)
     if (type === "theme") this.themeDelete(list)
   }
-  pageChangeView(tpye, start, stop) {
+  pageChangeView(type, start, stop) {
     const startTox = start == 1 ? 0 : start - 1
     const endTox = start == 1 ? 2 : start - 1
     start = startTox * 3
     stop = stop + endTox
-    if (tpye === "song") this.toListOfSong(start, stop)
+    if (type === "song") this.toListOfSong(start, stop)
+    if (type === "location") this.toListOfLocation(start, stop)
+    if (type === "food") this.toListOfFood(start, stop)
+    if (type === "theme") this.toListOfTheme(start, stop)
   }
 
   themeDelete(theme) {
@@ -136,6 +139,7 @@ export class ToListComponent implements OnInit {
     this.locationObjects.getListLocation(start, end).subscribe(
       locations => {
         this.handlerMessageSuc(locations)
+        console.log(locations)
         const name_location = locations.data.map(location => {
           const name = location.name_location
           const detail = location.detail_location
@@ -190,7 +194,10 @@ export class ToListComponent implements OnInit {
 
           return new ListObject(name, price, detail, img, type, id)
         })
-        this.listObject.setListObject(theme_changed)
+        this.listObject.setListObject({
+          data: theme_changed,
+          size: themes.size
+        })
       },
       e => this.handlerErrMes(e)
     )
