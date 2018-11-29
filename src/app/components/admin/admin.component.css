@@ -1,6 +1,7 @@
 .sidebar {
   padding: 0;
-  height: 800px;
+  /* height: 800px; */
+  padding-bottom: 10px;
   box-shadow: 5px 0 10px 1px rgba(0, 0, 0, 0.2);
 }
 .sidebar ul {

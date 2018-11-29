@@ -11,6 +11,9 @@ import { HomeComponent } from "./components/home/home.component"
 import { SelectedPartyComponent } from "./components/selected-party/selected-party.component"
 import { UserGuard } from "./guards/user.guard"
 import { NotSignGuard } from "./guards/not-sign.guard"
+import { UserComponent } from "./components/user/user.component"
+import { HistoryComponent } from "./components/user/history/history.component"
+import { PartyHandlerComponent } from "./components/user/party-handler/party-handler.component"
 
 const routes: Routes = [
   {
@@ -36,6 +39,14 @@ const routes: Routes = [
       { path: "food", component: FoodComponent },
       { path: "tolist", component: ToListComponent },
       { path: "theme", component: ThemeComponent }
+    ]
+  },
+  {
+    path: "user",
+    component: UserComponent,
+    children: [
+      { path: "history", component: HistoryComponent },
+      { path: "selectparty", component: PartyHandlerComponent }
     ]
   },
   {

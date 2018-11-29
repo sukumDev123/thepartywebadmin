@@ -1,3 +1,67 @@
-<p>
-  party-handler works!
-</p>
+<div class="container">
+  <form class="col-12 col-md-6" style="margin:auto">
+    <div class="md-form">
+      <label for="name_party">Name Party: </label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Name party.../"
+        name="name_party"
+      />
+    </div>
+    <div class="md-form">
+      <label for="name_party">Select your song in party: </label>
+      <div style="overflow: scroll;height: 400px;">
+        <img
+          (click)="onChangeSong(song)"
+          class="imgThisPage"
+          *ngFor="let song of songData"
+          src="{{ song.img_src }}"
+        />
+        <h3 *ngIf="!songData.length" class="text-center">Song is empty</h3>
+      </div>
+    </div>
+
+    <div class="md-form">
+      <label for="name_party">Select your food in party: </label>
+      <div style="overflow: scroll;height: 400px;">
+        <img
+          (click)="onChangeSong(song)"
+          class="imgThisPage"
+          *ngFor="let food of foodData"
+          src="{{ food.img_food }}"
+        />
+        <h3 *ngIf="!foodData.length" class="text-center">Food is empty</h3>
+      </div>
+    </div>
+
+    <div class="md-form">
+      <div class="md-form ">
+        <label for="Song Band">You selected Song Band.</label>
+        <div class="md-form imgThisPageSelect">
+          <div class="row">
+            <div class="col-12 col-md-4">
+              <img
+                src="{{ partyTotal.song.img_src }}"
+                style="width:128px;height:128px;"
+                alt=""
+                srcset=""
+              />
+            </div>
+            <div class="col-12 col-md-8">
+              <h5 class="text-primary mt-3">{{ partyTotal.song.name_song }}</h5>
+              <span class="addKanit">
+                price : {{ partyTotal.song.price_song | currency: "฿" }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="md-form">
+      <h3 class="text-primary">
+        Total Price : {{ privateTotal | currency: "฿" }}
+      </h3>
+    </div>
+  </form>
+</div>
