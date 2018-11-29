@@ -25,16 +25,16 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.locationS
-      .getListLocation(0, 5)
+      .getListLocation(0, 3)
       .subscribe(data => this.handlerDataLocation(data))
     this.songS
-      .getListSong(0, 5)
+      .getListSong(0, 3)
       .subscribe(data => this.handlerDataListSong(data))
     this.themeS
-      .getListOfTheme(0, 5)
+      .getListOfTheme(0, 3)
       .subscribe(data => this.handlerDataTheme(data))
     this.foodS
-      .getListFoodPlace(0, 5)
+      .getListFoodPlace(0, 3)
       .subscribe(data => this.handlerDataListFood(data))
   }
   handlerDataLocation(data) {

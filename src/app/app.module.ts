@@ -18,7 +18,8 @@ import { HomeComponent } from './components/home/home.component';
 import { SelectedPartyComponent } from './components/selected-party/selected-party.component';
 import { UserComponent } from './components/user/user.component';
 import { HistoryComponent } from './components/user/history/history.component';
-import { PartyHandlerComponent } from './components/user/party-handler/party-handler.component'
+import { PartyHandlerComponent } from './components/user/party-handler/party-handler.component';
+import { SignupComponent } from './components/signup/signup.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { PartyHandlerComponent } from './components/user/party-handler/party-han
     SelectedPartyComponent,
     UserComponent,
     HistoryComponent,
-    PartyHandlerComponent
+    PartyHandlerComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

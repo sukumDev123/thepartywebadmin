@@ -69,18 +69,27 @@ export class PartyTotal {
   theme: ThemeShow
   location: LocationShow
   food: FoodToShow
+  price_total: number = 0
+  id_user = 0
+  start_time = 0
 
   constructor(
     name_party = "",
     song: SongToShow = new SongToShowO(),
     theme: ThemeShow = new ThemeToShowO(),
     food: FoodToShow = new FoodToShowO(),
-    location: LocationShow = new LocationToShowO()
+    location: LocationShow = new LocationToShowO(),
+    price_total = 0,
+    id_user = 0,
+    start_time = 0
   ) {
     this.name_party = name_party
     this.song = song
     this.theme = theme
     this.food = food
     this.location = location
+    this.price_total = price_total
+    this.id_user = id_user
+    this.start_time = start_time
   }
 }

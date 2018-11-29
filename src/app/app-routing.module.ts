@@ -14,6 +14,7 @@ import { NotSignGuard } from "./guards/not-sign.guard"
 import { UserComponent } from "./components/user/user.component"
 import { HistoryComponent } from "./components/user/history/history.component"
 import { PartyHandlerComponent } from "./components/user/party-handler/party-handler.component"
+import { SignupComponent } from "./components/signup/signup.component"
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
     path: "signin",
     component: SigninComponent,
     canActivate: [NotSignGuard]
+  },
+  {
+    path: "signup",
+    component: SignupComponent
   },
   {
     path: "admin",
