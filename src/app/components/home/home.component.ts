@@ -4,6 +4,7 @@ import { SongService } from "../../services/song/song.service"
 import { ThemeService } from "../../services/theme/theme.service"
 import { FoodService } from "../../services/food/food.service"
 import { host_to_api } from "src/app/host"
+import { Router } from "@angular/router"
 
 @Component({
   selector: "app-home",
@@ -20,7 +21,8 @@ export class HomeComponent implements OnInit {
     private locationS: LocationService,
     private songS: SongService,
     private themeS: ThemeService,
-    private foodS: FoodService
+    private foodS: FoodService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -52,7 +54,9 @@ export class HomeComponent implements OnInit {
     this.songData = data.data.map(
       song => `${host_to_api}/public/${song.img_src}`
     )
-    // console.log(this.songData)
+  }
+  bookingParty() {
+    this.router.navigate(["/user/selectparty"])
   }
   handlerDataListFood(data) {
     this.foodsData = data.data.map(

@@ -34,7 +34,9 @@
     <p style="width:50%;margin:auto;">
       Handler your party is easy. If you want to party ex. Halloween , Christmas
       or HBD etc.You can click this -->
-      <strong><a>Booking for your Party</a></strong>
+      <strong
+        ><a routerLink="/user/selectparty">Booking for your Party</a></strong
+      >
     </p>
   </div>
   <h5 class="text-primary mt-5">You can choose Song bands you like it.</h5>
@@ -93,7 +95,10 @@
       Food is empty.
     </h3>
   </div>
-  <button class=" mt-5 btn btn-primary btn-lg btn-block">
+  <button
+    (click)="bookingParty()"
+    class=" mt-5 btn btn-primary btn-lg btn-block"
+  >
     Booking for your Party
   </button>
 </div>

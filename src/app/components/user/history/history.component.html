@@ -1,3 +1,11 @@
-<p>
-  history works!
-</p>
+<div class="container containerShowList">
+  <h3 class="text-center text-primary addKanit">History of user.</h3>
+  <div *ngFor="let history of historyParty" class="listOfDiv">
+    <h3 class="addKanit">Name Party : {{ history.name_party }}</h3>
+    <span class="addKanit"
+      >Price Total : {{ history.price_total | currency: "฿" }}</span
+    ><br />
+
+    <span class="addKanit">Start Time : {{ history.start_time | date }}</span>
+  </div>
+</div>

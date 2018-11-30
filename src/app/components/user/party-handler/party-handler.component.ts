@@ -12,6 +12,7 @@ import { FoodService } from "../../../services/food/food.service"
 import { LocationService } from "../../../services/location/location.service"
 import { ThemeService } from "../../../services/theme/theme.service"
 import { StoreSService } from "../../../services/store/store-s.service"
+import { PartyService } from "../../../services/party/party.service"
 
 @Component({
   selector: "app-party-handler",
@@ -30,7 +31,8 @@ export class PartyHandlerComponent implements OnInit {
     private foodS: FoodService,
     private locationS: LocationService,
     private themeS: ThemeService,
-    private _store: StoreSService
+    private _store: StoreSService,
+    private _partyS: PartyService
   ) {}
 
   ngOnInit() {
@@ -69,7 +71,19 @@ export class PartyHandlerComponent implements OnInit {
     const totalParty = this.totalPartyFunctionCall()
     if (totalParty) {
       this.partyTotal.start_time = +new Date(this.partyTotal.start_time)
-      console.log(this.partyTotal)
+
+      this._partyS.addNewParty(this.partyTotal).subscribe(
+        data => {
+          this.partyTotal = new PartyTotal()
+          this._store.setHandlerMsg({
+            message: data.message,
+            show: true,
+            status: data.status,
+            class: "suc_msg"
+          })
+        },
+        err => console.log(err)
+      )
       // console.log(totalParty)
     } else {
       this._store.setHandlerMsg({
