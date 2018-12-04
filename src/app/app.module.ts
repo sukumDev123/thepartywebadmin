@@ -20,6 +20,8 @@ import { UserComponent } from './components/user/user.component';
 import { HistoryComponent } from './components/user/history/history.component';
 import { PartyHandlerComponent } from './components/user/party-handler/party-handler.component';
 import { SignupComponent } from './components/signup/signup.component'
+import { ChartModule } from 'angular-highcharts';
+import { RankComponent } from './components/rank/rank.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,13 +38,15 @@ import { SignupComponent } from './components/signup/signup.component'
     UserComponent,
     HistoryComponent,
     PartyHandlerComponent,
-    SignupComponent
+    SignupComponent,
+    RankComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ChartModule,
     StoreModule.forRoot(reducer)
   ],
   providers: [],

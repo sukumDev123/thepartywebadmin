@@ -15,6 +15,7 @@ import { UserComponent } from "./components/user/user.component"
 import { HistoryComponent } from "./components/user/history/history.component"
 import { PartyHandlerComponent } from "./components/user/party-handler/party-handler.component"
 import { SignupComponent } from "./components/signup/signup.component"
+import { RankComponent } from "./components/rank/rank.component"
 
 const routes: Routes = [
   {
@@ -43,7 +44,8 @@ const routes: Routes = [
       { path: "location", component: LocaltionComponent },
       { path: "food", component: FoodComponent },
       { path: "tolist", component: ToListComponent },
-      { path: "theme", component: ThemeComponent }
+      { path: "theme", component: ThemeComponent },
+      { path: "rank", component: RankComponent }
     ]
   },
   {

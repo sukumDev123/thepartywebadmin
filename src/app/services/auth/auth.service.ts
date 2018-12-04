@@ -17,4 +17,13 @@ export class AuthService {
       authData
     )
   }
+  changeUser() {
+    const admin = localStorage.getItem("admin")!!
+    const user = localStorage.getItem("user")!!
+    if (admin) {
+      return JSON.parse(admin).data.id
+    } else if (user) {
+      return JSON.parse(user).data.id
+    }
+  }
 }

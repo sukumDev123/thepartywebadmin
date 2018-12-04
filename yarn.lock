@@ -296,6 +296,16 @@
     semver "5.5.1"
     semver-intersect "1.4.0"
 
+"@types/geojson@*":
+  version "7946.0.4"
+  resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-7946.0.4.tgz#4e049756383c3f055dd8f3d24e63fb543e98eb07"
+
+"@types/highcharts@^5.0.34":
+  version "5.0.34"
+  resolved "https://registry.yarnpkg.com/@types/highcharts/-/highcharts-5.0.34.tgz#9206cba2dd5bc695b03dead2090ded369321493c"
+  dependencies:
+    "@types/geojson" "*"
+
 "@types/jasmine@*":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-3.3.0.tgz#6b0e4b0192367d77e438ff660ccc4487c9602e7b"
@@ -540,6 +550,12 @@ ajv@^6.1.0, ajv@^6.5.5:
 amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
+
+angular-highcharts@^7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/angular-highcharts/-/angular-highcharts-7.0.2.tgz#b733e485f834c15f7067a0e04e639b3b1f32152b"
+  dependencies:
+    tslib "^1.9.0"
 
 ansi-colors@^3.0.0:
   version "3.2.1"
@@ -2708,6 +2724,10 @@ hash.js@^1.0.0, hash.js@^1.0.3:
   dependencies:
     inherits "^2.0.3"
     minimalistic-assert "^1.0.1"
+
+highcharts@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-6.2.0.tgz#2a6d04652eb43c66f462ca7e2d2808f1f2782b61"
 
 hmac-drbg@^1.0.0:
   version "1.0.1"
