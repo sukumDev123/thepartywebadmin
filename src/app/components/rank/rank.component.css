@@ -1,0 +1,15 @@
+.itemHover {
+  transition: all ease-in-out 0.4s;
+  cursor: pointer;
+}
+.itemHover:hover {
+  background: rgb(0, 132, 255);
+  color: white;
+}
+.showDetail {
+  cursor: pointer;
+  transition: all ease-in-out 0.4s;
+}
+.showDetail:hover {
+  color: rgb(0, 132, 255);
+}

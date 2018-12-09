@@ -26,6 +26,7 @@ export class PartyHandlerComponent implements OnInit {
   foodData: Array<FoodToShowO> = []
   themeData: Array<ThemeToShowO> = []
   locationData: Array<LocationToShowO> = []
+  keepIdUser = 0
   constructor(
     private songService: SongService,
     private foodS: FoodService,
@@ -46,9 +47,9 @@ export class PartyHandlerComponent implements OnInit {
     const admin = localStorage.getItem("admin")!!
     const user = localStorage.getItem("user")!!
     if (admin) {
-      this.partyTotal.id_user = JSON.parse(admin).data.id
+      this.keepIdUser = JSON.parse(admin).data.id
     } else if (user) {
-      this.partyTotal.id_user = JSON.parse(user).data.id
+      this.keepIdUser = JSON.parse(user).data.id
     }
   }
   onChangeSong(song) {
@@ -68,8 +69,10 @@ export class PartyHandlerComponent implements OnInit {
     this.totalCalToTotalPrice()
   }
   saveThisParty() {
+    alert(this.keepIdUser)
+    this.partyTotal.id_user = this.keepIdUser
     const totalParty = this.totalPartyFunctionCall()
-    if (totalParty) {
+    if (totalParty && this.partyTotal.id_user) {
       this.partyTotal.start_time = +new Date(this.partyTotal.start_time)
 
       this._partyS.addNewParty(this.partyTotal).subscribe(

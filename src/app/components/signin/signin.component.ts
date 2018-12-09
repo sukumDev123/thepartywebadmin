@@ -19,16 +19,16 @@ export class SigninComponent implements OnInit {
     private router: Router,
     private storeHandler: StoreSService
   ) {}
-
+  // roles
   ngOnInit() {}
   signIn() {
     this.auth.loginAuthToAdmin(this.authInfo).subscribe(
       data => {
+        // const ro = data.data.roles ? "/admin/tolist" : "/user/history"
         localStorage.setItem("admin", JSON.stringify(data))
-        this.router.navigate(["/admin/food"])
+        this.router.navigate([`/user/history`])
       },
       err => {
-        // console.log(err)
         const message = err.error.message
         this.storeHandler.setHandlerMsg({
           class: "err_msg",

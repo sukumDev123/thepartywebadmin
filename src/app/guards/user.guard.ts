@@ -14,7 +14,7 @@ export class UserGuard implements CanActivate {
   }
   canActivate(): boolean {
     if (this.isLogin()) {
-      if (this.UserData().roles === 0 || this.UserData().roles === 1) {
+      if (this.UserData().roles === 1 && this.UserData().roles === 0) {
         return true
       } else {
         this._router.navigate(["/signin"])

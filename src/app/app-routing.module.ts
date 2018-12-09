@@ -16,6 +16,7 @@ import { HistoryComponent } from "./components/user/history/history.component"
 import { PartyHandlerComponent } from "./components/user/party-handler/party-handler.component"
 import { SignupComponent } from "./components/signup/signup.component"
 import { RankComponent } from "./components/rank/rank.component"
+import { AdminGuard } from "./guards/admin.guard"
 
 const routes: Routes = [
   {
@@ -38,7 +39,7 @@ const routes: Routes = [
   {
     path: "admin",
     component: AdminComponent,
-    canActivate: [UserGuard],
+
     children: [
       { path: "songBand", component: SongBandComponent },
       { path: "location", component: LocaltionComponent },
@@ -51,6 +52,7 @@ const routes: Routes = [
   {
     path: "user",
     component: UserComponent,
+
     children: [
       { path: "history", component: HistoryComponent },
       { path: "selectparty", component: PartyHandlerComponent }

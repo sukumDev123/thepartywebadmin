@@ -26,4 +26,7 @@ export class AuthService {
       return JSON.parse(user).data.id
     }
   }
+  signUpAuth(auth): Observable<any> {
+    return this._http.post<any>(`${this.host}/api/v1/user/register`, auth)
+  }
 }

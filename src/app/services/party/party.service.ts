@@ -9,6 +9,9 @@ import { Observable } from "rxjs"
 export class PartyService {
   private host = host_to_api
   constructor(private http: HttpClient) {}
+  getAllPartyOfList(): Observable<any> {
+    return this.http.get(`${this.host}/api/v1/party/all/list`)
+  }
   getListOfHistory(start_location, end_lo, id_user): Observable<any> {
     return this.http.get(
       `${

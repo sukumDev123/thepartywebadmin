@@ -8,9 +8,92 @@
     >
       <option value="0"> --seleted your list--- </option>
 
-      <option value="2018"> List of 2018. </option>
-      <option value="2017"> List of 2017. </option>
+      <option *ngFor="let year of tempYear" value="{{ year }}">
+        List of {{ year }}.
+      </option>
     </select>
   </div>
   <div [chart]="chart"></div>
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <ul class="list-group">
+        <li
+          class="list-group-item itemHover"
+          (click)="selectedData(i)"
+          *ngFor="let g123 of mountsData; let i = index"
+        >
+          {{ g123 }}
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="listOfDataOfMount.length" class="col-12 col-md-8">
+      <table class="table">
+        <thead>
+          <th>Date</th>
+          <th>Price of party</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of listOfDataOfMount">
+            <td class="showDetail" (click)="showDetailDay(data.date)">
+              {{ data.date | date }}
+            </td>
+            <td>{{ data.price_total | currency: "฿" }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <a *ngIf="listOfDataOfMount.length"
+        >Total price {{ totalPrice | currency: "฿" }}</a
+      >
+      <div *ngIf="seleteToTalDateAll.length" class="bkTableMoney mt-5">
+        <h5>Date is : {{ dateIs | date }}</h5>
+        <table class="table">
+          <thead>
+            <th>Name Of Party</th>
+            <th>Party of Party</th>
+            <th>Date of Party</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sub of seleteToTalDateAll">
+              <td>{{ sub.name_party }}</td>
+              <td>{{ sub.price_total | currency: "฿" }}</td>
+              <td>{{ sub.date | date }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <a *ngIf="seleteToTalDateAll.length">
+          Total price of date : {{ detailDatePrice | currency: "฿" }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="col-12 col-md-6 " style="margin:auto">
+    <label for="Name">Seleted by Date : </label>
+    <input
+      class="form-control"
+      type="date"
+      #dateGet
+      (change)="dateGetFunction(dateGet)"
+    />
+  </div>
+  <h5 *ngIf="!partyOfDate.length" class="text-center mt-3">ยังไม่มีข้อมูล</h5>
+  <div *ngIf="partyOfDate.length">
+    <table class="table mt-3">
+      <thead>
+        <th>Name of party</th>
+        <th>Price of party</th>
+        <th>Date of party</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let partyD of partyOfDate">
+          <td>{{ partyD.name }}</td>
+          <td>{{ partyD.price | currency: "฿" }}</td>
+          <td>{{ partyD.date }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Total price : {{ totalBySeletePrice | currency: "฿" }}</p>
+  </div>
 </div>

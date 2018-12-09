@@ -1,5 +1,8 @@
 <div class="container containerShowList">
   <h3 class="text-center text-primary addKanit">History of user.</h3>
+  <h3 *ngIf="!historyParty.length" class="text-center mt-5">
+    History is empty.
+  </h3>
   <div *ngFor="let history of historyParty" class="listOfDiv">
     <h3 class="addKanit">Name Party : {{ history.name_party }}</h3>
     <span class="addKanit"

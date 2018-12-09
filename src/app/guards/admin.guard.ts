@@ -4,7 +4,7 @@ import { CanActivate, Router } from "@angular/router"
 @Injectable({
   providedIn: "root"
 })
-export class NotSignGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
   constructor(private _router: Router) {}
   isLogin() {
     return JSON.parse(localStorage.getItem("admin"))!!
@@ -14,18 +14,15 @@ export class NotSignGuard implements CanActivate {
   }
   canActivate(): boolean {
     if (this.isLogin()) {
-      console.log(this.UserData())
-      if (this.UserData().roles === 0 || this.UserData().roles === 1) {
-        const role = this.UserData().roles
-        const routTo = role ? "admin/tolist" : "user/history"
-        this._router.navigate([`/${routTo}`])
-
-        return false
+      if (this.UserData().roles === 1) {
+        return true
       } else {
+        this._router.navigate(["/signin"])
         return false
       }
     } else {
-      return true
+      this._router.navigate(["/signin"])
+      return false
     }
   }
 }

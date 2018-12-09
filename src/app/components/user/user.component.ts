@@ -7,9 +7,16 @@ import { Router } from "@angular/router"
   styleUrls: ["./user.component.css"]
 })
 export class UserComponent implements OnInit {
+  user = {
+    displayName: ""
+  }
   constructor(private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    const dataUser = JSON.parse(localStorage.getItem("admin"))
+    console.log(this.user)
+    this.user.displayName = dataUser.data.displayName
+  }
   logout() {
     localStorage.removeItem("admin")
     this.router.navigate(["/signin"])

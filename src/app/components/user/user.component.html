@@ -14,7 +14,7 @@
         <ul class="nav text-left flex-column">
           <li class="nav-item">
             <i class="fas fa-history"></i>
-            <a routerLink="/user/history">Histpry.</a>
+            <a routerLink="/user/history">History.</a>
           </li>
           <li class="nav-item">
             <!-- <i class="fab fa-elementor"></i> -->
@@ -25,7 +25,7 @@
         <hr />
         <div class="text-center">
           <img src="/assets/picture.png" class="imagProfile" alt="adminface" />
-          <h5>user:</h5>
+          <h5>user: {{ user.displayName }}</h5>
           <small (click)="logout()" class="text-danger">Log out.</small>
         </div>
       </div>
